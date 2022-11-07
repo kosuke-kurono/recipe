@@ -1,0 +1,16 @@
+<h1>Cooks#new</h1>
+<p>Find me in app/views/cooks/new.html.erb</p>
+
+  <%= form_for @cook do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  
+  <%= f.label :image %>
+  <%= f.attachment_field :image %>
+  
+  <%= f.submit %>
+
+<% end %>
