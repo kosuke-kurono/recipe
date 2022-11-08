@@ -1,2 +1,8 @@
 <h1>Cooks#index</h1>
 <p>Find me in app/views/cooks/index.html.erb</p>
+
+<% @cooks.each do |cook| %>
+<%= attachment_image_tag cook,:image %>
+<%= cook.user.username %>
+<time><%= cook.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+<% end %>

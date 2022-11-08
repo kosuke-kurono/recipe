@@ -1,5 +1,6 @@
 class CooksController < ApplicationController
   def index
+    @cooks =Cook.all
   end
 
   def show
@@ -16,7 +17,14 @@ class CooksController < ApplicationController
     redirect_to cook_path(@cook)
   end
   def edit
+    @cook = Cook.find(params[:id])
   end
+  def update
+    @cook = Cook.find(params[:id])
+    @cook.update(cook_params)
+    redirect_to cook_path(@cook)
+  end
+  
   private
   def cook_params
     params.require(:cook).permit(:title,:body,:image)
