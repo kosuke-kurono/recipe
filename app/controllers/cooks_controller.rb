@@ -24,6 +24,11 @@ class CooksController < ApplicationController
     @cook.update(cook_params)
     redirect_to cook_path(@cook)
   end
+  def destroy
+    @cook = Cook.find(params[:id])
+    @cook.destroy
+    redirect_to cook_path
+  end
   
   private
   def cook_params
