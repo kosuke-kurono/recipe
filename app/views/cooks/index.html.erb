@@ -1,8 +1,44 @@
-<h1>Cooks#index</h1>
-<p>Find me in app/views/cooks/index.html.erb</p>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title sub-title">
+        レシピ一覧
+      </h1>
+    </div>
+  </div>
+</section>
 
-<% @cooks.each do |cook| %>
-<%= attachment_image_tag cook,:image %>
-<%= cook.user.username %>
-<time><%= cook.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
-<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @cooks.each do |cook| %>
+      <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                 <%= link_to cook_path(cook) do %>
+                  <%= attachment_image_tag cook,:image %>
+                 <% end %>
+              </figure>
+            </div>
+             <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <%= attachment_image_tag cook.user, :profile_image, fallback: "no-image.png", class: "profile_image" %>
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="title"><%=link_to cook.user.username, user_path(cook.user) %></div>
+                </div>
+              </div>
+              <div class="content">
+                <time><%= cook.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
