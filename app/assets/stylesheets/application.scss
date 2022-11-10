@@ -29,3 +29,19 @@ h1.sub-title{
     margin: 0 20px 12px 0;
     padding: 0 0 8px;
 }
+.main-image{
+background:#ddd url(foods.jpg) no-repeat center center;
+background-size:contain;
+}
+.header-nav{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #eee;
+  box-sizing: border-box;
+}
+body{
+  padding:60px;
+}

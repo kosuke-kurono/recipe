@@ -1,4 +1,5 @@
 class CooksController < ApplicationController
+  before_action:authenticate_user!, except: [:index]
   def index
     @cooks =Cook.all
   end
