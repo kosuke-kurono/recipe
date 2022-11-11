@@ -16,7 +16,7 @@ class CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.user_id =current_user.id
     if @cook.save
-     redirect_to cook_path(@cook)
+     redirect_to cook_path(@cook),notice: "レシピを投稿しました。"
     else
      render :new 
     end
@@ -32,7 +32,7 @@ class CooksController < ApplicationController
   def update
     @cook = Cook.find(params[:id])
     if @cook.update(cook_params)
-      redirect_to cook_path(@cook)
+      redirect_to cook_path(@cook),notice: "レシピを更新しました。"
     else
       render :edit
     end
