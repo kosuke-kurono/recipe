@@ -12,11 +12,11 @@
   <div class="container">
     <div class="columns is-multiline">
       <% @users.each do |user| %>
-        <div class="column is-3">
+        <div class="column is-2">
           <div class="card">
             <div class="card-content">
               <div class="card-image">
-                <figure class="image">
+                <figure class="image is-square">
                   <%= link_to user_path(user) do %>
                     <%= attachment_image_tag user, :profile_image, fallback: "no-image.png" %>
                   <% end %>
@@ -26,7 +26,7 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <div class="title"><%=link_to user.username, user_path(user) %></div>
+                  <div class="has-text-weight-semibold"><%=link_to user.username, user_path(user) %></div>
                 </div>
               </div>
             　 <div class="content">
