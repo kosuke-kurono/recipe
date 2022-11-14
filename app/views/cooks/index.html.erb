@@ -31,9 +31,13 @@
             </div>
               <div class="media">
                   <% if current_user.favorite_add?(cook) %>
-                  <%= link_to 'いいねを外す' , cook_favorites_path(cook), method: :delete %>
+                    <%= link_to  cook_favorites_path(cook), method: :delete do %>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
                   <% else %>
-                  <%= link_to 'いいね', cook_favorites_path(cook),method: :post %>
+                    <%= link_to cook_favorites_path(cook),method: :post do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
                   <% end %>
                   <%= cook.favorites.count %>
               </div>
