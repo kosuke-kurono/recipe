@@ -33,20 +33,25 @@
                 <td><%=simple_format @cook.body%></td>
               </tr>
             </table>
-            <% if @cook.user.id == current_user.id %>
-              <%=link_to "編集",edit_cook_path(@cook),class:"button is-success"%>
-            <% end %>
-            <% if current_user.favorite_add?(@cook) %>
-            <%= link_to cook_favorites_path(@cook), method: :delete do %>
-            <i class="fas fa-heart"></i>
-            <% end %>
-            <% else %>
-            <%= link_to cook_favorites_path(@cook), method: :create do %>
-            <i class="far fa-heart"></i>
-            
-            <% end %>
-            <% end %>
-            <%= @cook.favorites.count %>
+            <div class="media">
+              <% if @cook.user.id == current_user.id %>
+                <%=link_to "編集",edit_cook_path(@cook),class:"button is-success"%>
+              <% end %>
+              <div class="favorite">
+                <span>お気に入り</span>
+                <% if current_user.favorite_add?(@cook) %>
+                  <%= link_to cook_favorites_path(@cook), method: :delete do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to cook_favorites_path(@cook), method: :create do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+                <%= @cook.favorites.count %>
+              </div>
+              
+            </div>
           </div>
           </div>
         </div>
