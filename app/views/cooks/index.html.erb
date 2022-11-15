@@ -28,16 +28,21 @@
               <div class="media">
                   <time><%= cook.updated_at.strftime("%Y-%m-%d") %></time>更新     by  <%=link_to cook.user.username, user_path(cook.user) %>
                   <div class="favorite">
-                  <% if current_user.favorite_add?(cook) %>
-                    <%= link_to  cook_favorites_path(cook), method: :delete do %>
-                      <i class="favorite fas fa-heart"></i>
+                    <% if user_signed_in? %>
+                      <% if current_user.favorite_add?(cook) %>
+                        <%= link_to  cook_favorites_path(cook), method: :delete do %>
+                          <i class="favorite fas fa-heart"></i>
+                        <% end %>
+                      <% else %>
+                        <%= link_to cook_favorites_path(cook),method: :post do %>
+                          <i class="favorite far fa-heart"></i>
+                        <% end %>
+                      <% end %>
+                      <%= cook.favorites.count %>
+                    <% else %>
+                    　<i class="favorite far fa-heart"></i>
+                    　<%= cook.favorites.count %>
                     <% end %>
-                  <% else %>
-                    <%= link_to cook_favorites_path(cook),method: :post do %>
-                      <i class="favorite far fa-heart"></i>
-                    <% end %>
-                  <% end %>
-                  <%= cook.favorites.count %>
                   </div>
               </div>
             </div>
