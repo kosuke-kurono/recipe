@@ -41,11 +41,11 @@
                 <span>お気に入り</span>
                 <% if current_user.favorite_add?(@cook) %>
                   <%= link_to cook_favorites_path(@cook), method: :delete do %>
-                    <i class="fas fa-heart"></i>
+                    <i class="favorite fas fa-heart"></i>
                   <% end %>
                 <% else %>
                   <%= link_to cook_favorites_path(@cook), method: :create do %>
-                    <i class="far fa-heart"></i>
+                    <i class="favorite far fa-heart"></i>
                   <% end %>
                 <% end %>
                 <%= @cook.favorites.count %>
