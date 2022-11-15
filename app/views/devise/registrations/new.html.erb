@@ -15,7 +15,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-
+        <!--名前-->
         <div class="field">
           <%= f.label :username, class: "label" %>
           <p class="control has-icons-left">
@@ -25,7 +25,8 @@
             </span>
           </p>
         </div>
-
+        
+        <!--メールアドレス-->
         <div class="field">
           <%= f.label :email, class: "label" %>
           <p class="control has-icons-left">
@@ -35,11 +36,12 @@
             </span>
           </p>
         </div>
-
+        
+        <!--パスワード-->
         <div class="field">
           <%= f.label :password, class: "label" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> 文字以上の英数字)</em>
           <% end %>
           <p class="control has-icons-left">
           <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
@@ -48,7 +50,8 @@
             </span>
           </p>
         </div>
-
+        
+        <!--パスワード確認-->
         <div class="field">
           <%= f.label :password_confirmation, class: "label" %>
           <p class="control has-icons-left">
@@ -60,7 +63,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up", class: "button is-success" %>
+          <%= f.submit "登録", class: "button is-success" %>
         </div>
         <% end %>
         <%= render "devise/shared/links" %>
